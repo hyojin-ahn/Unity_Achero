@@ -7,3 +7,4 @@ obj/
 *.sln
 .vsconfig
 UserSettings/
+UserSettings/EditorUserSettings.asset
