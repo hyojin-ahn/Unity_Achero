@@ -26,7 +26,7 @@ public class AttackPos : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletFactory);
             bullet.transform.position = transform.position;
-            transform.Translate(Vector3.up * currentTime * Time.deltaTime);
+            transform.Translate(Vector3.down * currentTime * Time.deltaTime);
             currentTime = 0;
 
         }

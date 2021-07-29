@@ -12,17 +12,17 @@ public class BulletMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Player");
-        dir = target.transform.position - transform.position;
-        dir.Normalize();
-    }
 
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
-        transform.position += dir * speed * Time.deltaTime;
+
+        target = GameObject.Find("Player");
+        dir = target.transform.position - transform.position;
+        dir.Normalize();
+        transform.Translate(dir * speed * Time.deltaTime);
 
     }
     private void OnCollisionEnter(Collision collision)
