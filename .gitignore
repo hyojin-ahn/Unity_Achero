@@ -1,5 +1,4 @@
 Library/
-UserSettings/
 Temp/
 Logs/
 .vs/
@@ -7,3 +6,4 @@ obj/
 *.csproj
 *.sln
 .vsconfig
+UserSettings/
