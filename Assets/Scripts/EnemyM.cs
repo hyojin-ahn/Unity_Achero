@@ -23,8 +23,5 @@ public class EnemyM : MonoBehaviour
         //transform.position += dir * speed * Time.deltaTime;
 
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    Destroy(collision.gameObject);
-    //}
+   
 }
