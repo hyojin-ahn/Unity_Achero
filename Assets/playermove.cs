@@ -7,7 +7,7 @@ public class playermove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Input.GetButtonDown(*) 
+        //Input.GetButtonDown(*) 
     }
 
     // Update is called once per frame
