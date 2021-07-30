@@ -29,11 +29,10 @@ public class MakeEnemy : MonoBehaviour
         Vector3 basePosition = transform.position;
         Vector3 size = area.size;
 
-        float posX = basePosition.x + Random.Range(-size.x / 10f, size.x / 10f);
-        float posY = basePosition.y + Random.Range(-size.y / 1f, size.y / 1f);
-        float posZ = basePosition.z + Random.Range(-size.z / 15f, size.z / 15f);
+        float posX = basePosition.x + Random.Range(-6.5f, 6.5f);        
+        float posZ = basePosition.z + Random.Range(-8.5f, 8.5f);
 
-        Vector3 spawnPos = new Vector3(posX, posY, posZ);
+        Vector3 spawnPos = new Vector3(posX, 0.5f, posZ);
 
         return spawnPos;
     }

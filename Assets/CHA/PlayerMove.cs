@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
 
         //이동 
         Vector3 dirH = Vector3.right * h;
-        Vector3 dirV = Vector3.up * v;
+        Vector3 dirV = Vector3.forward * v;
         Vector3 dir = dirH + dirV;
         //dir의 크기 1로 한다
         dir.Normalize();

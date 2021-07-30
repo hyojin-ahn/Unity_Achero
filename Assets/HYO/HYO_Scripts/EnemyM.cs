@@ -11,7 +11,7 @@ public class EnemyM : MonoBehaviour
 
     public GameObject enemy;
     GameObject player;
-    float objDistance;
+    public float objDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -22,14 +22,25 @@ public class EnemyM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         player = GameObject.Find("Player");
         objDistance = Vector3.Distance(enemy.transform.position, player.transform.position);
-        Debug.Log(objDistance);
+        //Debug.Log(objDistance);
 
-        dir = player.transform.position - transform.position;
-        dir.Normalize();
-        transform.Translate(dir * speed * Time.deltaTime);
-        //transform.position += dir * speed * Time.deltaTime;
+        if(objDistance > 2)
+        {
+            dir = player.transform.position - transform.position;
+            dir.Normalize();
+            transform.Translate(dir * speed * Time.deltaTime);
+            //transform.position += dir * speed * Time.deltaTime;
+        }
+        else
+        {
+
+        }
+
+
+        
 
     }
    
