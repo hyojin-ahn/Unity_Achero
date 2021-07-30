@@ -10,6 +10,10 @@ public class CameraSetting : MonoBehaviour
     {
         //플레이어 따라다니는 카메라
         player = GameObject.Find("Player_");
+        if(player == null)
+        {
+            player = GameObject.Find("Player");
+        }
         //cam X,Z축은 같고 Y축으로만 이동
         pos = new Vector3(0, 15.5f, 0);
         
