@@ -7,9 +7,9 @@ public class AttackPos : MonoBehaviour
     public GameObject bulletFactory;  //ÃÑ¾Ë °øÀå
 
     float currentTime;
-    bool targetready;
-
+    bool targetready;  
     public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +25,13 @@ public class AttackPos : MonoBehaviour
         if(currentTime > 1  && targetready==true)
         {
             GameObject bullet = Instantiate(bulletFactory);
+
             bullet.transform.position = transform.position;
-            transform.Translate(Vector3.down * currentTime * Time.deltaTime);
+            transform.Translate(Vector3.forward * currentTime * Time.deltaTime);
             currentTime = 0;
+
+            //BulletMove bm = bullet.GetComponent<BulletMove>();
+            //bm.power = 1000;
 
         }
 
