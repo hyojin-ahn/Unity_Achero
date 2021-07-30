@@ -7,9 +7,9 @@ public class AttackPos : MonoBehaviour
     public GameObject bulletFactory;  //ÃÑ¾Ë °øÀå
 
     float currentTime;
-    bool targetready;
-
+    bool targetready;  
     public float speed;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyM : MonoBehaviour
+public class EnemyS : MonoBehaviour
 {
-    public float speed;
     public int Hp;
     public int Power;
-    Vector3 dir;
 
     public GameObject enemy;
     GameObject player;
@@ -25,12 +23,5 @@ public class EnemyM : MonoBehaviour
         player = GameObject.Find("Player");
         objDistance = Vector3.Distance(enemy.transform.position, player.transform.position);
         Debug.Log(objDistance);
-
-        dir = player.transform.position - transform.position;
-        dir.Normalize();
-        transform.Translate(dir * speed * Time.deltaTime);
-        //transform.position += dir * speed * Time.deltaTime;
-
     }
-   
 }
