@@ -10,10 +10,16 @@ public class Player : MonoBehaviour
     {
         playerHp = 1000;
     }
-
     // Update is called once per frame
     void Update()
     {
-        
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(playerHp == 0)
+            Destroy(gameObject);        
+    }
+
+
+
 }
