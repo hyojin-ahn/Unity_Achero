@@ -477,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1147395263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -972,7 +972,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  target: {fileID: 1055024059}
+  Hp: 0
+  Power: 0
+  enemy: {fileID: 1886381599}
+  objDistance: 0
 --- !u!54 &1886381605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1194,6 +1197,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8728200619689334726, guid: 63ec1f5ee70f1314d86516b3fd5d0c40, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1055024059}
     - target: {fileID: 8728200620680880851, guid: 63ec1f5ee70f1314d86516b3fd5d0c40, type: 3}
       propertyPath: m_Name
       value: Player_
