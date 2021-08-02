@@ -21,8 +21,9 @@ public class PlayerHpBar : MonoBehaviour
     {
         //플레이어를 따라다니게 함
         //transform.position = player.transform.position;
+
         //hp값 적용
-        HandleHp();            
+        HandleHp();
         //hp값을 화면에 적용
         HpDisplay();
     }
