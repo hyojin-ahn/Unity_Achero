@@ -20,7 +20,16 @@ public class PlayerHpBar : MonoBehaviour
     void Update()
     {
         //플레이어를 따라다니게 함
+<<<<<<< Updated upstream:Assets/KHJ/PlayerHpBar.cs
         transform.position = player.position;
+=======
+        //transform.position = player.transform.position;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            currentHp -= 120;
+        }
+>>>>>>> Stashed changes:Assets/KHJ/KHJ_Scripts/PlayerHpBar.cs
         //hp값 적용
         HandleHp();
         //(임시) 스페이스바 누르면 hp 깎임
