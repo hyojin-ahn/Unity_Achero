@@ -19,7 +19,7 @@ public class WheelRoulette : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("충돌");
+        //Debug.Log("충돌");
         //Destroy(this.gameObject);
         UI.SetActive(true);
     }

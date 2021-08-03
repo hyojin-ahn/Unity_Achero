@@ -20,12 +20,24 @@ public class RoulletteMngr : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Rolling();        
     }
+
+    void Rolling()
+    {
+        //Board를 Z축 회전
+
+
+    }
+    IEnumerator StartRolling()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+
+
 }
