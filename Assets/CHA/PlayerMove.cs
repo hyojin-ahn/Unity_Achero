@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMove : MonoBehaviour
 {
-    public float speed = 20; 
+    public float speed = 20;
+    public bool ismove;
+
     // Start is called before the first frame update
     void Start()
     {
         speed = 5.5f;
+
     }
 
     // Update is called once per frame
@@ -20,6 +24,14 @@ public class PlayerMove : MonoBehaviour
         // 상하 
         float v = Input.GetAxis("Vertical");
 
+        if (h != 0.0f || v != 0.0f)
+        {
+            ismove = true;
+        }
+        else
+        {
+            ismove = false;
+        }
         //이동 
         Vector3 dirH = Vector3.right * h;
         Vector3 dirV = Vector3.forward * v;
@@ -29,6 +41,8 @@ public class PlayerMove : MonoBehaviour
 
         //움직임
         transform.position += dir * speed * Time.deltaTime;
+        
+
 
 
     }
