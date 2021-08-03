@@ -15,15 +15,25 @@ public class BulletMove : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player");
-        dir = target.transform.position - transform.position;
-        dir.Normalize();
+
+        //dir = target.transform.position - transform.position;
+        //dir.Normalize();
+
+        Vector3 l_vector = target.transform.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(l_vector).normalized;
+
     }
 
     // Update is called once per frame
     void Update()
     {
- 
-        transform.Translate(dir * speed * Time.deltaTime);
+
+        // 타겟 방향으로 회전함
+        //transform.LookAt(transform);
+
+        // 타겟 방향으로 다가감
+        
+        transform.position += transform.forward * speed * Time.deltaTime;
 
     }
     
@@ -42,6 +52,7 @@ public class BulletMove : MonoBehaviour
 
         dir = Quaternion.Euler(0, Random.Range(-60.0f, 60.0f), 0) * other.transform.forward;
         dir.Normalize();
+        transform.forward = dir;
 
 
         //가져온 힘을 볼 오브젝트에 다시 전해 줌.
