@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHpBar : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     public Text Hp;             //화면상에 나타는 hp값
     public Slider hpBar;
     public float maxHp;
@@ -13,19 +13,17 @@ public class PlayerHpBar : MonoBehaviour
     float hpValue;              //slider에 들어가는 value값
     void Start()
     {
-        
-
+        maxHp = player.GetComponent<Player>().playerHp;
+        currentHp = maxHp;
     }
 
     void Update()
     {
         //플레이어를 따라다니게 함
-        transform.position = player.position;
+        //transform.position = player.transform.position;
+
         //hp값 적용
         HandleHp();
-        //(임시) 스페이스바 누르면 hp 깎임
-        if (Input.GetKeyDown(KeyCode.Space))
-            currentHp -= 120;
         //hp값을 화면에 적용
         HpDisplay();
     }
@@ -45,5 +43,11 @@ public class PlayerHpBar : MonoBehaviour
             currentHp = 0;
         Hp.text = currentHp.ToString();
     }
+
+    public void Damaged(int damage)
+    {
+        currentHp -= damage;
+    }
+
 
 }
