@@ -26,6 +26,7 @@ public class PlayerHpBar : MonoBehaviour
         HandleHp();
         //hp값을 화면에 적용
         HpDisplay();
+        
     }
 
     void HandleHp()
