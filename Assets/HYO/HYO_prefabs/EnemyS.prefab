@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletFactory: {fileID: 3223997351893058478, guid: c7768cdc2e7e6224ca25da04c3c45b9e, type: 3}
-  speed: 4
+  speed: 6
 --- !u!1 &763458720731503749
 GameObject:
   m_ObjectHideFlags: 0

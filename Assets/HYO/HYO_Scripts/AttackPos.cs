@@ -10,7 +10,7 @@ public class AttackPos : MonoBehaviour
     bool targetready;  
     public float speed;
     int count=0;
-    
+    int rand;
 
     // Start is called before the first frame update
     void Start()
@@ -22,25 +22,35 @@ public class AttackPos : MonoBehaviour
     
     void Update()
     {
+        rand = Random.Range(3, 8);
         currentTime += Time.deltaTime;
-        
-        if(currentTime > 1  && targetready==true)
+        if (count < 3)
         {
-            GameObject bullet = Instantiate(bulletFactory);
-
-            bullet.transform.position = transform.position;
-            transform.Translate(Vector3.forward * currentTime * Time.deltaTime);
-            currentTime = 0;
-            count = count + 1;
-            if (count == 3)
+            if (currentTime > 0.5f && targetready == true)
             {
-                currentTime = -4;
-                count = 0;
-
+                Fire();
+                currentTime = 0;
+               
             }
         }
+        else if (count == 3)
+        {
+            if(currentTime > rand)
+            {
+                count = 0;
+            }   
 
+        }
 
     }
+
+    void Fire()
+    {
+        GameObject bullet = Instantiate(bulletFactory);
+        bullet.transform.position = transform.position;
+        transform.Translate(Vector3.forward * currentTime * Time.deltaTime);
+        count = count + 1;
+    }
+   
 
 }
