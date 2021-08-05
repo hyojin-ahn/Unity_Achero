@@ -17,6 +17,8 @@ public class RoulletteMngr : MonoBehaviour
     List<int> ResultIndexList = new List<int>();
     int ItemCnt = 6;
 
+    //시작버튼
+    public GameObject StartButton;
 
     void Start()
     {
@@ -32,7 +34,7 @@ public class RoulletteMngr : MonoBehaviour
     IEnumerator StartRolling()
     {
         yield return new WaitForSeconds(2f);
-        float rotateSpeed = 10f;
+        float rotateSpeed = Random.Range(8f,13f);
         while (true) {
             yield return null;
             if (rotateSpeed <= 0.01f) break;
@@ -50,15 +52,19 @@ public class RoulletteMngr : MonoBehaviour
     {
         int ResultIndex = -1;
         float tmpDistance = 1000f;
-        for (int i = 0; i < ItemCnt-1; i++)
+        for (int i = 0; i < ItemCnt; i++)
         {
             float currDistance = Vector2.Distance(DisplayItemSlot[i].transform.position, Needle.transform.position);
             if (tmpDistance > currDistance)
             {
+                tmpDistance = currDistance;
+                Debug.Log(i + " : " + currDistance);
                 ResultIndex = i;
             }
         }
+        print("Result Index : "+ResultIndex);
         DisplayItemSlot[ItemCnt].sprite = DisplayItemSlot[ResultIndex].sprite;
+        StartButton.SetActive(true);
     }
 
 }
