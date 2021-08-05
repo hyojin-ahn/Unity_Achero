@@ -39,7 +39,7 @@ public class BulletMove : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
 
         //충돌한 반대 방향으로 튕기기
         //방향과 힘을 갖는 Vector3
