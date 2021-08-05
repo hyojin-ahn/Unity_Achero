@@ -12,6 +12,7 @@ public class EnemyS : MonoBehaviour
     public float objDistance;
     public bool isRotate;
 
+    MakeEnemy spawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,13 @@ public class EnemyS : MonoBehaviour
     {
         if(gameObject.GetComponentInChildren<AttackPos>().count == 4)
         {
+            //y=-2
+            //Vector3 gone= new Vector3(0, -2, 0);
+            transform.position = new Vector3(0, -2, 0);
+            //Vector3.Lerp(transform.up, gone , 0.5f * Time.deltaTime);
+
+            //spawn = FindObjectOfType<spawn>();
+
             // 타겟 방향으로 회전함
             Vector3 l_vector = player.transform.position - transform.position;
             //transform.rotation = Quaternion.LookRotation(l_vector).normalized;

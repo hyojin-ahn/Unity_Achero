@@ -14,6 +14,7 @@ public class EnemyM : MonoBehaviour
     public float objDistance;
     public Transform model;
 
+
     // Start is called before the first frame update
     void Start()
     {

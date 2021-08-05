@@ -866,8 +866,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 338153484511780675, guid: 1116cbd066b8c4644a7977ba4da332d9, type: 3}
-  - {fileID: 763458720731503749, guid: eb15aefb32b8906478cb0650d62ffa05, type: 3}
+  - {fileID: 7835049984591788987, guid: 387bdb194448e5643a2d65a4551af500, type: 3}
+  - {fileID: 5710348948048548015, guid: fd38d3e4e4a53024dac35e0c28760bc2, type: 3}
   count: 4
 --- !u!65 &1853854561
 BoxCollider:

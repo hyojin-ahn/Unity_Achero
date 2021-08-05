@@ -36,7 +36,7 @@ public class MakeEnemy : MonoBehaviour
 
         return spawnPos;
     }
-    private void Spawn()
+    public void Spawn()
     {
         int selection = Random.Range(0, prefabs.Length);
 
