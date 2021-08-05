@@ -12,6 +12,7 @@ public class EnemyM : MonoBehaviour
     public GameObject enemy;
     GameObject player;
     public float objDistance;
+    public Transform model;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class EnemyM : MonoBehaviour
             dir = player.transform.position - transform.position;
             dir.Normalize();
             transform.Translate(dir * speed * Time.deltaTime);
+            model.Rotate(10, 0, 0);
             //transform.position += dir * speed * Time.deltaTime;
         }
         else
@@ -43,5 +45,13 @@ public class EnemyM : MonoBehaviour
         
 
     }
-   
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print(collision.gameObject.name);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        print(other.gameObject.name);
+    }
 }
