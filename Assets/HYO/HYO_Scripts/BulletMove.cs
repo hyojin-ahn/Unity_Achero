@@ -51,8 +51,10 @@ public class BulletMove : MonoBehaviour
 
 
         dir = Quaternion.Euler(0, Random.Range(-60.0f, 60.0f), 0) * other.transform.forward;
+        dir.y = 0;
         dir.Normalize();
         transform.forward = dir;
+        
 
 
         //가져온 힘을 볼 오브젝트에 다시 전해 줌.
