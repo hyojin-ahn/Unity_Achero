@@ -20,24 +20,45 @@ public class RoulletteMngr : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(StartRolling());
     }
 
     // Update is called once per frame
     void Update()
     {
-        Rolling();        
+     
     }
 
-    void Rolling()
-    {
-        //Board를 Z축 회전
-
-
-    }
     IEnumerator StartRolling()
     {
         yield return new WaitForSeconds(2f);
+        float rotateSpeed = 10f;
+        while (true) {
+            yield return null;
+            if (rotateSpeed <= 0.01f) break;
+            rotateSpeed = Mathf.Lerp(rotateSpeed, 0, Time.deltaTime * 0.7f);
+
+            //룰렛판 회전시키기
+            RouletteBoard.transform.Rotate(0, 0, rotateSpeed);
+        
+        }
+        DisplayResult();
+
     }
 
+    void DisplayResult()
+    {
+        int ResultIndex = -1;
+        float tmpDistance = 1000f;
+        for (int i = 0; i < ItemCnt-1; i++)
+        {
+            float currDistance = Vector2.Distance(DisplayItemSlot[i].transform.position, Needle.transform.position);
+            if (tmpDistance > currDistance)
+            {
+                ResultIndex = i;
+            }
+        }
+        DisplayItemSlot[ItemCnt].sprite = DisplayItemSlot[ResultIndex].sprite;
+    }
 
 }
