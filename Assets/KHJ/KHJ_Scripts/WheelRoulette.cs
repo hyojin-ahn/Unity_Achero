@@ -19,8 +19,6 @@ public class WheelRoulette : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Ãæµ¹");
-        //Destroy(this.gameObject);
         UI.SetActive(true);
     }
 

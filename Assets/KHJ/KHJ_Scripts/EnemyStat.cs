@@ -15,9 +15,5 @@ public class EnemyStat : MonoBehaviour
         
     }
 
-    public void damaged(int damage)
-    {
-        //hp -= damage;
-    }
 
 }
