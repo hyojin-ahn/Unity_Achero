@@ -6,17 +6,29 @@ public class Player : MonoBehaviour
 {
     public int playerHp;
     public int PlayerPower;
-
-    // Start is called before the first frame update
+    public float FireTime;
     void Start()
     {
         playerHp = 1000;
         PlayerPower = 10;
+        FireTime = 2f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if(other.gameObject.name == "Bullet")
+        {
+            playerHp -= other.gameObject.GetComponent<BulletMove>().power;
+            Destroy(other.gameObject);
+        }
     }
 }

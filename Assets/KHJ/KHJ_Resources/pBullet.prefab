@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7534081705460925759}
   - component: {fileID: 7035682036722711270}
   - component: {fileID: -5962847883273890264}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: pBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,9 +84,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8500008268625749374}
     m_Modifications:
+    - target: {fileID: 237502361168242848, guid: 311a95f103da42941889a0acf8913573, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 290145169195460501, guid: 311a95f103da42941889a0acf8913573, type: 3}
       propertyPath: m_Name
       value: polycarrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 290145169195460501, guid: 311a95f103da42941889a0acf8913573, type: 3}
+      propertyPath: m_Layer
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1102570275406396719, guid: 311a95f103da42941889a0acf8913573, type: 3}
       propertyPath: m_RootOrder
@@ -143,6 +151,14 @@ PrefabInstance:
     - target: {fileID: 1102570275406396719, guid: 311a95f103da42941889a0acf8913573, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636845495440934846, guid: 311a95f103da42941889a0acf8913573, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476183286593560486, guid: 311a95f103da42941889a0acf8913573, type: 3}
+      propertyPath: m_Layer
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 311a95f103da42941889a0acf8913573, type: 3}

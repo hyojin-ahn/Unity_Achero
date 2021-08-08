@@ -26,7 +26,9 @@ public class PlayerBulletMove : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //데미지 주기
-        other.GetComponent<EnemyStat>().hp -= power;
+        other.GetComponentInParent<EnemyStat>().hp -= power;
+
+        //데미지 주면 총알 파괴
         Destroy(gameObject);
     }
 
