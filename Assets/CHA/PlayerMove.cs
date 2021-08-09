@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 20;
+    Vector3 lookDirection;
     public bool ismove;
 
     // Start is called before the first frame update
@@ -18,30 +20,49 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 입력
-        // 좌우 
-        float h = Input.GetAxis("Horizontal");
-        // 상하 
-        float v = Input.GetAxis("Vertical");
-
-        if (h != 0.0f || v != 0.0f)
+        float h;
+        float v;
+        if (Input.GetKey(KeyCode.A) ||
+            Input.GetKey(KeyCode.D) ||
+            Input.GetKey(KeyCode.W) ||
+            Input.GetKey(KeyCode.S))
         {
-            ismove = true;
-        }
-        else
-        {
-            ismove = false;
-        }
-        //이동 
-        Vector3 dirH = Vector3.right * h;
-        Vector3 dirV = Vector3.forward * v;
-        Vector3 dir = dirH + dirV;
-        //dir의 크기 1로 한다
-        dir.Normalize();
+            
+            h = Input.GetAxis("Horizontal");
+            
+            v = Input.GetAxis("Vertical");
+            if (h != 0.0f || v != 0.0f)
+            {
+                ismove = true;
+            }
+            else
+            {
+                ismove = false;
+            }
+            
+            Vector3 dirH = Vector3.right * h;
+            Vector3 dirV = Vector3.forward * v;
+            Vector3 dir = dirH + dirV;
 
-        //움직임
-        transform.position += dir * speed * Time.deltaTime;
-        
+            
+            
+            lookDirection = dir;
+            //h * dirV + v * Vector3.right;
+           
+            this.transform.rotation = Quaternion.LookRotation(lookDirection);
+            //this.transform.Translate(dir * speed * Time.deltaTime);
+            transform.position += dir * speed * Time.deltaTime;
+            dir.Normalize();
+        }
+
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SceneManager.LoadScene(2);
+        }
+
+
 
 
 
