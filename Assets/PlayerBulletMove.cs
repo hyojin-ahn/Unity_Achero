@@ -28,6 +28,8 @@ public class PlayerBulletMove : MonoBehaviour
         //데미지 주기
         other.GetComponentInParent<EnemyStat>().hp -= power;
 
+        //other.GetComponentInChildren<EnemyHpBar>().Damaged(power);
+
         //데미지 주면 총알 파괴
         Destroy(gameObject);
     }

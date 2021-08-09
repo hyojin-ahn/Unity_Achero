@@ -10,11 +10,18 @@ public class EnemyHpBar : MonoBehaviour
     public float maxHp;
     public float currentHp;
     float hpValue;              //slider에 들어가는 value값
+
+    float tmpHp;
+
+    //공격 받았을 때 연출
+    public GameObject DamageText;
+
     void Start()
     {
         maxHp = enemyname.GetComponent<EnemyStat>().hp;
 
         currentHp = maxHp;
+        tmpHp = currentHp;
     }
 
     void Update()
@@ -32,9 +39,34 @@ public class EnemyHpBar : MonoBehaviour
         hpBar.value = Mathf.Lerp(hpBar.value, hpValue, Time.deltaTime * 10);
 
 
+        ////hp감소 감지        
+        //if (tmpHp > currentHp)
+        //{
+        //    //Damaged((int)(tmpHp - currentHp));
+        //    tmpHp = currentHp;
+
+        //}
+
         if (currentHp <= 0)
         {
-            Destroy(enemyname);
+            //Destroy(enemyname);
+            enemyname.SetActive(false);
         }
     }
+
+
+    public void Damaged(int damage)
+    {
+        Debug.Log("Damage : " + damage);
+        DamageText.GetComponent<Text>().text = damage.ToString();
+        DamageText.SetActive(true);
+        StartCoroutine("DamagedAnim");
+    }
+
+    IEnumerator DamagedAnim()
+    {
+        yield return new WaitForSeconds(0.5f);
+        DamageText.SetActive(false);
+    }
+
 }

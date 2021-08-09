@@ -10,7 +10,7 @@ public class MakeEnemy : MonoBehaviour
     private BoxCollider area;    
     public int count;      //찍어낼 게임 오브젝트 갯수
 
-    private List<GameObject> gameObject = new List<GameObject>();
+    public List<GameObject> EnemyList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class MakeEnemy : MonoBehaviour
         Vector3 spawnPos = GetRandomPosition();//랜덤위치함수
 
         GameObject instance = Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
-        gameObject.Add(instance);
+        EnemyList.Add(instance);
     }
 
     // Update is called once per frame
