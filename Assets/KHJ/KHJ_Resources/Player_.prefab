@@ -698,6 +698,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackPos:
   - {fileID: 2169557366093477081}
+  - {fileID: 9217673367929839313}
+  - {fileID: 4306566264877674948}
+  - {fileID: 6378816330202056958}
   PlayerBullet: {fileID: 2359594517626023885, guid: e42e826464b5902458498f7ed7fc6562, type: 3}
   ability:
   - {fileID: 0}

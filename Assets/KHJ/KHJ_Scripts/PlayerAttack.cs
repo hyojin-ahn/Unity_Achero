@@ -49,17 +49,13 @@ public class PlayerAttack : MonoBehaviour
         //공격 테스트용
         if (Input.GetMouseButtonDown(0))
         {
-            Fire();
-
-
-
-
+            if(Multishot)
+                StartCoroutine("FireTwice");
+            else
+                Fire();
         }
             
-        if (Input.GetMouseButtonDown(1))
-        {
-            StartCoroutine("FireTwice");
-        }    
+   
         //어빌리티 테스트용
         if (Input.GetKeyDown(KeyCode.Alpha7))
             if (Front2)
@@ -103,9 +99,33 @@ public class PlayerAttack : MonoBehaviour
     void Fire()
     {
 
-        //총알 만들기
         GameObject bullet = Instantiate(PlayerBullet);
-        bullet.transform.position = AttackPos[0].transform.position;
+        //총알 만들기        
+        if (Front2 == true) 
+        {
+            SetBullet(bullet, 1);
+            GameObject bullet1 = Instantiate(PlayerBullet);
+            SetBullet(bullet1, 2);
+        }
+        else if (Front2 == false)
+        {            
+            SetBullet(bullet, 0);
+        }
+
+        if(Rear == true)
+        {
+            GameObject bullet1 = Instantiate(PlayerBullet);
+            SetBullet(bullet1, 3);
+            bullet1.transform.forward = Vector3.back;
+        }
+
+        //일정 시간마다 발사
+        CurrTime = 0;
+    }
+
+    void SetBullet(GameObject bullet, int pos)
+    {
+        bullet.transform.position = AttackPos[pos].transform.position;
         if (CurrTarget != null)
         {
             //타겟 방향으로 총알 방향 설정
@@ -113,15 +133,14 @@ public class PlayerAttack : MonoBehaviour
             bullet.GetComponent<PlayerBulletMove>().dir = firedir.normalized;
         }
         else if (CurrTarget == null)
-        {            
+        {
             bullet.GetComponent<PlayerBulletMove>().dir = Vector3.forward;
         }
         //총알에 데미지 실어서 쏘기
         bullet.GetComponent<PlayerBulletMove>().power = gameObject.GetComponent<Player>().PlayerPower;
 
-        //일정 시간마다 발사
-        CurrTime = 0;
     }
+
 
     void DetectNearestTarget()
     {
