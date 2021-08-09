@@ -24,7 +24,7 @@ public class MakeEnemy : MonoBehaviour
 
         area.enabled = false;
     }
-    private Vector3 GetRandomPosition()
+    public Vector3 GetRandomPosition()
     {
         Vector3 basePosition = transform.position;
         Vector3 size = area.size;
