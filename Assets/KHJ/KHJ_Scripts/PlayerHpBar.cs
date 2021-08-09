@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class PlayerHpBar : MonoBehaviour
 {
     public GameObject player;
+    
     public Text Hp;             //화면상에 나타는 hp값
     public Slider hpBar;
     public float maxHp;
     public float currentHp;
     float hpValue;              //slider에 들어가는 value값
+
+    //공격 받았을 때 연출
+    public GameObject DamagedValue;
+
     void Start()
     {
         maxHp = player.GetComponent<Player>().playerHp;
@@ -31,6 +36,7 @@ public class PlayerHpBar : MonoBehaviour
 
     void HandleHp()
     {
+        currentHp = player.GetComponent<Player>().playerHp;
         //hpBar의 값은 0~1 사이의 값임 따라서 현재hp/최대hp값으로 구할 수 있음
         hpValue = currentHp / maxHp;
         //선형보간 Mathf.Lerp(A,B,t) A와 B사이의 t만큼의 값을 반환함
@@ -47,7 +53,15 @@ public class PlayerHpBar : MonoBehaviour
 
     public void Damaged(int damage)
     {
-        currentHp -= damage;
+        StartCoroutine("DamagedAnim");
+        DamagedValue.GetComponent<Text>().text = damage.ToString();
+        DamagedValue.SetActive(true);
+    }
+
+    IEnumerator DamagedAnim()
+    {
+        yield return new WaitForSeconds(0.5f);
+        DamagedValue.SetActive(false);
     }
 
 

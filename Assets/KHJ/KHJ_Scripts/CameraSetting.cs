@@ -8,8 +8,7 @@ public class CameraSetting : MonoBehaviour
     public GameObject player;
     void Start()
     {
-        //플레이어 따라다니는 카메라
-        player = GameObject.Find("Player_");
+        //플레이어 따라다니는 카메라        
         if(player == null)
         {
             player = GameObject.Find("Player");
