@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  Hp: 10
-  Power: 10
+  Hp: 30
+  Power: 100
   enemy: {fileID: 338153484511780675}
   objDistance: 0
   model: {fileID: 6472178684231365605}

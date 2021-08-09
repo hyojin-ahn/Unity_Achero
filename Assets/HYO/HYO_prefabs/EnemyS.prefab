@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletFactory: {fileID: 3223997351893058478, guid: c7768cdc2e7e6224ca25da04c3c45b9e, type: 3}
   speed: 6
+  count: 0
 --- !u!1 &763458720731503749
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,10 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68cf7eecf470be4085d8762ce566584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 10
-  Power: 10
+  Hp: 30
+  Power: 100
   enemy: {fileID: 763458720731503749}
   objDistance: 0
+  isRotate: 0
 --- !u!54 &2636405545175667615
 Rigidbody:
   m_ObjectHideFlags: 0

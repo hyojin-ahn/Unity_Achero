@@ -12,8 +12,5 @@ public class EnemyStat : MonoBehaviour
 
     private void Start()
     {
-        
     }
-
-
 }

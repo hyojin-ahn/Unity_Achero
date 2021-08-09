@@ -31,6 +31,7 @@ public class PlayerHpBar : MonoBehaviour
 
     void HandleHp()
     {
+        currentHp = player.GetComponent<Player>().playerHp;
         //hpBar의 값은 0~1 사이의 값임 따라서 현재hp/최대hp값으로 구할 수 있음
         hpValue = currentHp / maxHp;
         //선형보간 Mathf.Lerp(A,B,t) A와 B사이의 t만큼의 값을 반환함

@@ -39,12 +39,20 @@ public class PlayerAttack : MonoBehaviour
     
     void Fire()
     {
+
         //총알 만들기
         GameObject bullet = Instantiate(PlayerBullet);
         bullet.transform.position = AttackPos.transform.position;
-        //타겟 방향으로 총알 방향 설정
-        Vector3 firedir = CurrTarget.transform.position - transform.position;
-        bullet.GetComponent<PlayerBulletMove>().dir = firedir.normalized;
+        if (CurrTarget != null)
+        {
+            //타겟 방향으로 총알 방향 설정
+            Vector3 firedir = CurrTarget.transform.position - transform.position;
+            bullet.GetComponent<PlayerBulletMove>().dir = firedir.normalized;
+        }
+        else if (CurrTarget == null)
+        {            
+            bullet.GetComponent<PlayerBulletMove>().dir = Vector3.forward;
+        }
         //총알에 데미지 실어서 쏘기
         bullet.GetComponent<PlayerBulletMove>().power = gameObject.GetComponent<Player>().PlayerPower;
 

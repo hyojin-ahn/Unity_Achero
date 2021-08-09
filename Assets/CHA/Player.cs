@@ -25,8 +25,9 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if(other.gameObject.name == "Bullet")
+        if(other.gameObject.layer == 8)
         {
+            Debug.Log("Damage : "+ other.gameObject.GetComponent<BulletMove>().power);
             playerHp -= other.gameObject.GetComponent<BulletMove>().power;
             Destroy(other.gameObject);
         }
