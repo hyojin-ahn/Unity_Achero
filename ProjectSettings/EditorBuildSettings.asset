@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/KHJ/KHJ_StartScene.unity
+    guid: a8fc2f84785571349bc8d604d4ef154b
+  - enabled: 1
+    path: Assets/HYO/HYO_Scene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/KHJ/KHJ_AbilityTestScene.unity
+    guid: ee440522d5b5135478fcefd2f3ad820a
   m_configObjects: {}

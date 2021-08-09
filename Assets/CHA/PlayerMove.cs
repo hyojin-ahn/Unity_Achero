@@ -62,7 +62,10 @@ public class PlayerMove : MonoBehaviour
             SceneManager.LoadScene(2);
         }
 
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene(1);
+        }
 
 
 
