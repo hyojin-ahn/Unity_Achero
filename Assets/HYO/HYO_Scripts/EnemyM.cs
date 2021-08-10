@@ -37,10 +37,7 @@ public class EnemyM : MonoBehaviour
             model.Rotate(10, 0, 0);
             //transform.position += dir * speed * Time.deltaTime;
         }
-        else
-        {
-
-        }
+        
 
 
         
