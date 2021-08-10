@@ -22,18 +22,26 @@ public class RoulletteMngr : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(StartRolling());
+
     }
 
-    // Update is called once per frame
     void Update()
     {
      
     }
 
-    IEnumerator StartRolling()
+    public void StartRoll()
     {
-        yield return new WaitForSeconds(2f);
+        StartCoroutine(Rolling());
+    }
+
+    public void StartSlot()
+    {
+        StartCoroutine(Slot());
+    }
+
+    IEnumerator Rolling()
+    {
         float rotateSpeed = Random.Range(8f,13f);
         while (true) {
             yield return null;
@@ -45,11 +53,14 @@ public class RoulletteMngr : MonoBehaviour
         
         }
         DisplayResult();
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
 
     }
 
     void DisplayResult()
     {
+        
         int ResultIndex = -1;
         float tmpDistance = 1000f;
         for (int i = 0; i < ItemCnt; i++)
@@ -66,5 +77,14 @@ public class RoulletteMngr : MonoBehaviour
         DisplayItemSlot[ItemCnt].sprite = DisplayItemSlot[ResultIndex].sprite;
         StartButton.SetActive(true);
     }
+
+    IEnumerator Slot()
+    {
+
+        yield return new WaitForSeconds(0.1f);
+
+
+    }
+
 
 }

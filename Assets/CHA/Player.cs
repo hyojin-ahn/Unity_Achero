@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+    public static Player instance;
     public int playerHp;
     public int PlayerPower;
     public float FireTime;
@@ -12,6 +12,13 @@ public class Player : MonoBehaviour
     PlayerHpBar hpBar;
     void Start()
     {
+        //ΩÃ±€≈Ê
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+
+        //Ω∫≈» √ ±‚º≥¡§
         hpBar = PlayerCanvas.GetComponent<PlayerHpBar>();
         if (hpBar == null)
             Debug.Log("hpBar Missing");
