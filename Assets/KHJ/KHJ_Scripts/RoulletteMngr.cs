@@ -10,28 +10,20 @@ public class RoulletteMngr : MonoBehaviour
     public GameObject RoulettePanel;
     public GameObject Needle;
     //스킬아이콘으로 쓸 스프라이트, 아이콘이 들어갈 이미지들
-    public Sprite[] SkillSprite;
     public Image[] DisplayItemSlot;
-
-    List<int> StartList = new List<int>();
+    //랜덤하게 디스플레이
+    public List<int> StartList = new List<int>();
     List<int> ResultIndexList = new List<int>();
     int ItemCnt = 6;
-
+    //결과 표시
+    public Text skillname;
+    public Text skillcontext;
     //시작버튼
     public GameObject StartButton;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-     
-    }
-
     public void StartRoll()
     {
+        Shuffle();
         StartCoroutine(Rolling());
     }
 
@@ -58,9 +50,35 @@ public class RoulletteMngr : MonoBehaviour
 
     }
 
-    void DisplayResult()
+    void Shuffle()
     {
-        
+        StartList.Clear();
+        ResultIndexList.Clear();
+        //StartList[i] = i인 배열 생성
+        for (int i = 0; i < ItemCnt; i++)
+        {
+            StartList.Add(i);
+        }
+        //셔플
+        for (int i = 0; i < ItemCnt; i++)
+        {
+            int random = Random.Range(0, ItemCnt);
+            int tmp = StartList[random];
+            StartList[random] = StartList[i];
+            StartList[i] = tmp;
+        }
+        //결과값을 룰렛에 적용
+        for (int i = 0; i < ItemCnt; i++)
+        {
+            ResultIndexList.Add(StartList[i]);
+            print(i + " : " + StartList[i]);
+            DisplayItemSlot[i].sprite = AbilityManager.instance.abilities[ResultIndexList[i]].image;
+        }
+    }
+
+
+    void DisplayResult()
+    {        
         int ResultIndex = -1;
         float tmpDistance = 1000f;
         for (int i = 0; i < ItemCnt; i++)
@@ -69,21 +87,19 @@ public class RoulletteMngr : MonoBehaviour
             if (tmpDistance > currDistance)
             {
                 tmpDistance = currDistance;
-                Debug.Log(i + " : " + currDistance);
                 ResultIndex = i;
             }
         }
+
+        //룰렛 결과값
         print("Result Index : "+ResultIndex);
         DisplayItemSlot[ItemCnt].sprite = DisplayItemSlot[ResultIndex].sprite;
-        StartButton.SetActive(true);
+        StartButton.SetActive(false);
     }
 
     IEnumerator Slot()
     {
-
         yield return new WaitForSeconds(0.1f);
-
-
     }
 
 

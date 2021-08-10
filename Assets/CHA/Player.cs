@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
 
         if(other.gameObject.layer == 8)
         {
-            //Debug.Log("Damage : "+ other.gameObject.GetComponent<BulletMove>().power);
             playerHp -= other.gameObject.GetComponent<BulletMove>().power;
             hpBar.Damaged(other.gameObject.GetComponent<BulletMove>().power);
             Destroy(other.gameObject);
