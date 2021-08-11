@@ -6,39 +6,67 @@ using UnityEngine.UI;
 public class EnemyBOSS : MonoBehaviour
 {
     //현재 HP
-    float currHp;
+    public float bossHp;
     //최대HP
     public float maxHp;
-
+    //HP UI
     public Image hpUI;
-
+    //들어갈 데미지
     public int damage;
+    //miniboss 수
+    public int miniNum;
+    public int miniNum2;
+
+    bool is700;
+    bool is400;
+
+    public List<GameObject> EnemyList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        currHp = maxHp;
-
+        bossHp = maxHp;
+        EnemyList.Add(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameObject go = GameObject.Find("MakeMini");
+        MakeMinis gogo = go.GetComponent<MakeMinis>();
         //Boss의 HP가 700보다 작거나 같으면
-        if(currHp <= 700)
+        if (bossHp == 700)
         {
-            //miniBoss를 만든다 ...10개
+            if (is700 == false)
+            {
+                is700 = true;
 
-            //miniBoss가 죽으면 
-            //minimiBoss를 또 만든다...5개
-
-            //Boss의 HP가 400보다 작거나 같으면
-            //miniBoss를 만든다 ...7개
-            //miniBoss가 죽으면 
-            //minimiBoss를 또 만든다...4개
-
-            //minimiBoss가 모두 죽으면 
-            //클리어 화면을 띄운다
+                //miniBoss를 만든다 ...miniNum개
+                for (int i = 0; i <= miniNum; i++)
+                {
+                    gogo.MakeMins();
+                }
+            }
+            
+  
+        }
+        //Boss의 HP가 400보다 작거나 같으면       
+        else if (bossHp <= 400)
+        {
+            if (is400 == false)
+            {
+                is400 = true;
+                //miniBoss를 만든다 ...miniNum2개
+                for (int i = 0; i <= miniNum2; i++)
+                {
+                    gogo.MakeMins();
+                }
+            }
+           
+        }
+        else if (bossHp <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 
@@ -46,8 +74,9 @@ public class EnemyBOSS : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("pBullet"))
         {
-            currHp -= damage;
-            hpUI.fillAmount = currHp / maxHp;           
+            collision.gameObject.SetActive(false);
+            bossHp -= damage;
+            hpUI.fillAmount = bossHp / maxHp;           
 
         }
     }

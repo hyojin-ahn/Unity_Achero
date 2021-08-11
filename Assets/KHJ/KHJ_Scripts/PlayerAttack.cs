@@ -26,8 +26,14 @@ public class PlayerAttack : MonoBehaviour
     {
         player = gameObject.GetComponent<Player>();
         spawn = GameObject.Find("spawn");
+
         if(spawn != null)
             EnemyList = spawn.GetComponent<MakeEnemy>().EnemyList;
+        if (spawn == null)
+        {
+            spawn = GameObject.Find("Boss");
+            EnemyList = spawn.GetComponent<EnemyBOSS>().EnemyList;
+        }
 
     }
 
