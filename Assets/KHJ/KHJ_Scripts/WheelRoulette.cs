@@ -25,7 +25,6 @@ public class WheelRoulette : MonoBehaviour
     public void LoadScene()
     {
         SceneManager.LoadScene(1);
-
     }
     
 }

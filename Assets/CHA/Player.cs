@@ -42,5 +42,43 @@ public class Player : MonoBehaviour
             hpBar.Damaged(other.gameObject.GetComponent<BulletMove>().power);
             Destroy(other.gameObject);
         }
+
+        if(other.gameObject.layer == 21)
+        {
+            playerHp -= 10;
+            hpBar.Damaged(10);
+        }
+
+
+
+    }
+    public void Recovery()
+    {
+        float tmp = hpBar.maxHp * 0.3f;
+
+
+        playerHp += (int)tmp;
+
+    }
+
+    public void HpBoost()
+    {
+        float tmp = hpBar.maxHp * 0.2f;
+
+        hpBar.maxHp += tmp;
+        playerHp += (int)tmp;
+    }
+    public void Strong()
+    {
+        //공격력 15% 증가
+        float tmp = PlayerPower * 0.15f;        
+        PlayerPower += (int)tmp;
+    }
+
+    public void MoreStrong()
+    {
+        //공격력 30% 증가
+        float tmp = PlayerPower * 0.3f;
+        PlayerPower += (int)tmp;
     }
 }

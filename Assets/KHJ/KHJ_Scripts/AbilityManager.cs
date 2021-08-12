@@ -32,6 +32,34 @@ public class AbilityManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (abilities[0].isActive)
+        {
+            //공격력 약간 증가
+            Player.instance.Strong();
+            abilities[0].isActive = false;
+        }
+
+        if (abilities[1].isActive)
+        {
+            //공격력 증가
+            Player.instance.MoreStrong();
+            abilities[1].isActive = false;
+        }
+
+
+
+        if (abilities[2].isActive)
+        {
+            //HP부스트
+            Player.instance.HpBoost();
+            abilities[2].isActive = false;
+        }
+
+
+
+
+
+
+        DontDestroyOnLoad(gameObject);
     }
 }

@@ -5,38 +5,33 @@ using UnityEngine.UI;
 
 public class SkillTextAnim : MonoBehaviour
 {
+    //처음 위치
+    Vector3 init;
 
-    void Start()
+    private void OnEnable()
     {
-
-
-        /*  
-        iTween.MoveTo(ready, iTween.Hash(
+        init = transform.position;
+        iTween.MoveTo(gameObject, iTween.Hash(
             "x", Screen.width * 0.5,
             "time", 0.5f,
             "easetype", iTween.EaseType.easeInOutBack
             ));
 
-        iTween.ScaleTo(ready, iTween.Hash(
-            "x", 1.5,
-            "y", 1.5,
-            "z", 1.5,
-            "time", 1f,
+        iTween.MoveTo(gameObject, iTween.Hash(
+            "x", Screen.width * 1.5,
+            "time", 0.5f,
             "easetype", iTween.EaseType.easeInOutBack,
-            "delay", 1f
+            "delay", 2f,
+            "oncomplete", "setting"
             ));
-
-        */
     }
 
-    void Update()
+
+    void setting()
     {
-        
+        transform.position = init;
+        gameObject.SetActive(false);
     }
-
-
-
-
 
 
 }

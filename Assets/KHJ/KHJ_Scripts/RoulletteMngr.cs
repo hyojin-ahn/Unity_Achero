@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class RoulletteMngr : MonoBehaviour
 {
+    public GameObject roulette;
     //·ê·¿ÆÇ, ·ê·¿ÀÌ µé¾îÀÖ´Â ÆÇ³Ú, ·ê·¿¹Ù´Ã
     public GameObject RouletteBoard;
     public GameObject RoulettePanel;
@@ -22,6 +23,7 @@ public class RoulletteMngr : MonoBehaviour
 
     public void StartRoll()
     {
+        StartButton.SetActive(false);
         Shuffle();
         StartCoroutine(Rolling());
     }
@@ -47,6 +49,7 @@ public class RoulletteMngr : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         GetAbilityUI(Resultindex);
         gameObject.SetActive(false);
+        Destroy(roulette);
     }
 
     void Shuffle()
@@ -91,8 +94,7 @@ public class RoulletteMngr : MonoBehaviour
         //·ê·¿ °á°ú°ª
         print("Result Index : " + ResultIndex);
         DisplayItemSlot[ItemCnt].sprite = DisplayItemSlot[ResultIndex].sprite;
-        AbilityManager.instance.abilities[ResultIndexList[ResultIndex]].isActive = true;
-        StartButton.SetActive(false);
+        AbilityManager.instance.abilities[ResultIndexList[ResultIndex]].isActive = true;        
         return ResultIndexList[ResultIndex];
     }
 
