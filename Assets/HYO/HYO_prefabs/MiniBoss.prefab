@@ -308,7 +308,8 @@ MonoBehaviour:
   maxHp: 1000
   hpUI: {fileID: 2919359240815898595}
   damage: 100
-  miniNum: 3
+  miniNum: 1
+  exploFactory: {fileID: 1391094211174683844, guid: f4945e153e142da478fc434787c33773, type: 3}
 --- !u!54 &7972798331525640068
 Rigidbody:
   m_ObjectHideFlags: 0

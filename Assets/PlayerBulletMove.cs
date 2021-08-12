@@ -8,6 +8,10 @@ public class PlayerBulletMove : MonoBehaviour
     public Vector3 dir;
     public int power;
 
+
+    //Æø¹ßÈ¿°ú
+    public GameObject exploFactory;
+
     void Start()
     {
         
@@ -29,9 +33,23 @@ public class PlayerBulletMove : MonoBehaviour
         other.GetComponentInParent<EnemyStat>().hp -= power;
 
         //other.GetComponentInChildren<EnemyHpBar>().Damaged(power);
-
+        //eft
+        CreateExploEffect();
         //µ¥¹ÌÁö ÁÖ¸é ÃÑ¾Ë ÆÄ±«
         Destroy(gameObject);
+    }
+    public void CreateExploEffect()
+    {
+
+        GameObject explo = Instantiate(exploFactory);
+
+        explo.transform.position = transform.position;
+
+        ParticleSystem ps = explo.GetComponent<ParticleSystem>();
+
+        ps.Play();
+
+        Destroy(explo, 0.7f);
     }
 
 

@@ -15,6 +15,7 @@ public class EnemyM : MonoBehaviour
     public Transform model;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,12 +38,10 @@ public class EnemyM : MonoBehaviour
             model.Rotate(10, 0, 0);
             //transform.position += dir * speed * Time.deltaTime;
         }
-        
-
-
-        
 
     }
+ 
+
 
     private void OnCollisionEnter(Collision collision)
     {

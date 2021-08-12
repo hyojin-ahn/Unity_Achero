@@ -66,7 +66,7 @@ public class minimisMove : MonoBehaviour
             float dir1 = Random.Range(-6.5f, 6.5f);
             float dir2 = Random.Range(-8.5f, 8.5f);
 
-            dir = new Vector3(dir1, 0.5f, dir2);
+            dir = new Vector3(dir1, 0, dir2);
             yield return new WaitForSeconds(5);
             //rigi.velocity = new Vector3(dir1, 0.5f, dir2);
             

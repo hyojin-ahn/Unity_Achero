@@ -13,6 +13,8 @@ public class MinimiBoss : MonoBehaviour
     public Image hpUI;
     //들어갈 데미지
     public int damage;
+    //폭발효과
+    public GameObject exploFactory;
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +31,29 @@ public class MinimiBoss : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    void CreateExploEffect()
+    {
 
+        GameObject explo = Instantiate(exploFactory);
+
+        Vector3 i = transform.position;
+        i.z = 1.3f;
+
+        explo.transform.position = i;
+
+        ParticleSystem ps = explo.GetComponent<ParticleSystem>();
+
+        ps.Play();
+
+        Destroy(explo, 0.7f);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name.Contains("pBullet"))
         {
             MinimibossHp -= damage;
             hpUI.fillAmount = MinimibossHp / maxHp;
+            CreateExploEffect();
 
         }
     }

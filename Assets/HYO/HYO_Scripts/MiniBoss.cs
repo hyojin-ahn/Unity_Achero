@@ -15,6 +15,8 @@ public class MiniBoss : MonoBehaviour
     public int damage;
     //miniboss ¼ö
     public int miniNum;
+    //Æø¹ßÈ¿°ú
+    public GameObject exploFactory;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,22 @@ public class MiniBoss : MonoBehaviour
         }
        
     }
+    void CreateExploEffect()
+    {
+
+        GameObject explo = Instantiate(exploFactory);
+
+        Vector3 i = transform.position;
+        //i.z = 1.3f;
+
+        explo.transform.position = i;
+
+        ParticleSystem ps = explo.GetComponent<ParticleSystem>();
+
+        ps.Play();
+
+        Destroy(explo, 0.7f);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -49,7 +67,7 @@ public class MiniBoss : MonoBehaviour
         {
             MinibossHp -= damage;
             hpUI.fillAmount = MinibossHp / maxHp;
-
+            CreateExploEffect();
         }
     }
 }

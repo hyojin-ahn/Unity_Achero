@@ -16,6 +16,9 @@ public class EnemyBOSS : MonoBehaviour
     //miniboss ¼ö
     public int miniNum;
     public int miniNum2;
+    //Æø¹ßÈ¿°ú
+    public GameObject exploFactory;
+
 
     bool is700;
     bool is400;
@@ -69,6 +72,22 @@ public class EnemyBOSS : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    void CreateExploEffect()
+    {
+        
+        GameObject explo = Instantiate(exploFactory);
+
+        Vector3 i = transform.position;
+        i.z = 1.3f;
+
+        explo.transform.position = i;
+
+        ParticleSystem ps = explo.GetComponent<ParticleSystem>();
+        
+        ps.Play();
+       
+        Destroy(explo, 0.7f);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -76,8 +95,8 @@ public class EnemyBOSS : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             bossHp -= damage;
-            hpUI.fillAmount = bossHp / maxHp;           
-
+            hpUI.fillAmount = bossHp / maxHp;
+            CreateExploEffect();
         }
     }
 
