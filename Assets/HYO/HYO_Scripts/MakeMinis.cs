@@ -23,7 +23,7 @@ public class MakeMinis : MonoBehaviour
     {
         GameObject Minimis = Instantiate(MiniFactory);
         Minimis.transform.position = MiniMom.transform.position;
-        
-        gameObject.GetComponentInParent<EnemyBOSS>().EnemyList.Add(Minimis);
+
+        EnemyBossManager.instance.EnemyList.Add(Minimis);
     }
 }

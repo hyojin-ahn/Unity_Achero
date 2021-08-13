@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
         if (spawn == null)
         {
             spawn = GameObject.Find("Boss");
-            EnemyList = spawn.GetComponent<EnemyBOSS>().EnemyList;
+            EnemyList = EnemyBossManager.instance.EnemyList;
         }
 
     }

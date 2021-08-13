@@ -18,10 +18,14 @@ public class MiniBoss : MonoBehaviour
     //Æø¹ßÈ¿°ú
     public GameObject exploFactory;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         MinibossHp = maxHp;
+        //EnemyBossManager.instance.maxHp += (int)MinibossHp;
+
 
     }
 
@@ -67,6 +71,7 @@ public class MiniBoss : MonoBehaviour
         {
             MinibossHp -= damage;
             hpUI.fillAmount = MinibossHp / maxHp;
+            EnemyBossManager.instance.bossHp -= damage;
             CreateExploEffect();
         }
     }

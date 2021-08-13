@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/KHJ/KHJ_AbilityTestScene.unity
     guid: ee440522d5b5135478fcefd2f3ad820a
+  - enabled: 1
+    path: Assets/HYO/HYO_Scene_BOSS.unity
+    guid: 0983b32b0a9287246857af1e6ffdead6
+  - enabled: 1
+    path: Assets/HYO/Clear_Scene.unity
+    guid: 2707933de843a2e4dbda220e6d242bed
   m_configObjects: {}

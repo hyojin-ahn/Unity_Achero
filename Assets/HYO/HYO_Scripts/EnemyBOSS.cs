@@ -9,8 +9,7 @@ public class EnemyBOSS : MonoBehaviour
     public float bossHp;
     //최대HP
     public float maxHp;
-    //HP UI
-    public Image hpUI;
+    
     //들어갈 데미지
     public int damage;
     //miniboss 수
@@ -23,13 +22,13 @@ public class EnemyBOSS : MonoBehaviour
     bool is700;
     bool is400;
 
-    public List<GameObject> EnemyList = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         bossHp = maxHp;
-        EnemyList.Add(gameObject);
+        EnemyBossManager.instance.EnemyList.Add(gameObject);
+        //EnemyBossManager.instance.maxHp += (int)bossHp;
     }
 
     // Update is called once per frame
@@ -54,7 +53,7 @@ public class EnemyBOSS : MonoBehaviour
   
         }
         //Boss의 HP가 400보다 작거나 같으면       
-        else if (bossHp <= 400)
+        else if (bossHp == 400)
         {
             if (is400 == false)
             {
@@ -95,7 +94,7 @@ public class EnemyBOSS : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             bossHp -= damage;
-            hpUI.fillAmount = bossHp / maxHp;
+            EnemyBossManager.instance.bossHp -= damage;
             CreateExploEffect();
         }
     }

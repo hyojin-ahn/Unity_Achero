@@ -20,6 +20,7 @@ public class MinimiBoss : MonoBehaviour
     void Start()
     {
         MinimibossHp = maxHp;
+        //EnemyBossManager.instance.maxHp += (int)MinimibossHp;
 
     }
 
@@ -53,6 +54,7 @@ public class MinimiBoss : MonoBehaviour
         {
             MinimibossHp -= damage;
             hpUI.fillAmount = MinimibossHp / maxHp;
+            EnemyBossManager.instance.bossHp -= damage;
             CreateExploEffect();
 
         }
