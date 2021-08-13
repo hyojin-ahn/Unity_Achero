@@ -1467,6 +1467,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7531067647387491506, guid: 5eeb26052ed1bc045a7da3a067d5fcea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9848078
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531067647387491506, guid: 5eeb26052ed1bc045a7da3a067d5fcea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.17364825
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531067647387491506, guid: 5eeb26052ed1bc045a7da3a067d5fcea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 8000929936551173408, guid: 5eeb26052ed1bc045a7da3a067d5fcea, type: 3}
       propertyPath: m_Name
       value: Boss
