@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1927478468283766796}
   - component: {fileID: 1927478468283766799}
-  - component: {fileID: 1927478468283766797}
+  - component: {fileID: 1399406407267923757}
+  - component: {fileID: 8324053784182386321}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -71,7 +72,23 @@ MonoBehaviour:
     description: "\uD654\uC0B4\uC774 \uB4A4\uB85C \uBC1C\uC0AC\uB428 + 1"
     image: {fileID: 21300000, guid: 9fc4398f1abf0e54a80cdfacc7c9a118, type: 3}
     isActive: 0
---- !u!114 &1927478468283766797
+--- !u!114 &1399406407267923757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927478468283766798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4539f8be505505441bab5f54e3916436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage_now: 1
+  clear: 0
+  Door: {fileID: 0}
+  SlotMachine: {fileID: 0}
+--- !u!114 &8324053784182386321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

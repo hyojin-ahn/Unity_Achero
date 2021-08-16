@@ -11,7 +11,8 @@ public class PlayerMove : MonoBehaviour
     public bool ismove;
     bool isBorder;
 
-    // Start is called before the first frame update
+    
+
     void Start()
     {
         speed = 5.5f;

@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     //Àû Å¸°ÙÆÃ
     public GameObject spawn;
-    List<GameObject> EnemyList = new List<GameObject>();
+    public List<GameObject> EnemyList = new List<GameObject>();
     public GameObject CurrTarget;    
 
     void Start()

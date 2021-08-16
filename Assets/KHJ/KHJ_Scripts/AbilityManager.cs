@@ -20,14 +20,14 @@ public class AbilityManager : MonoBehaviour
     //±¸Á¶Ã¼
     public Ability[] abilities = new Ability[6];
 
-
-
-    void Start()
+    private void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
@@ -54,12 +54,5 @@ public class AbilityManager : MonoBehaviour
             Player.instance.HpBoost();
             abilities[2].isActive = false;
         }
-
-
-
-
-
-
-        DontDestroyOnLoad(gameObject);
     }
 }

@@ -10,28 +10,26 @@ public class Player : MonoBehaviour
     public float FireTime;
     public GameObject PlayerCanvas;
     PlayerHpBar hpBar;
-    void Start()
+
+    private void Awake()
     {
         //ΩÃ±€≈Ê
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
-
+        
+    }
+    void Start()
+    {
         //Ω∫≈» √ ±‚º≥¡§
         hpBar = PlayerCanvas.GetComponent<PlayerHpBar>();
         if (hpBar == null)
             Debug.Log("hpBar Missing");
-        playerHp = 1000;
-        PlayerPower = 10;
+        //playerHp = 1000;
+        //PlayerPower = 10;
         FireTime = 2f;
     }
-
-    void Update()
-    {
-        
-    }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,9 +47,13 @@ public class Player : MonoBehaviour
             hpBar.Damaged(10);
         }
 
-
-
+        if (other.gameObject.layer == 22)
+        {
+            StageManager.instance.clear = true;
+        }
     }
+
+
     public void Recovery()
     {
         float tmp = hpBar.maxHp * 0.3f;

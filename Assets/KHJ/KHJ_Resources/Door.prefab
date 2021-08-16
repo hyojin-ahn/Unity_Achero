@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2118927318318769314}
   - component: {fileID: 7812206638653177740}
-  m_Layer: 0
+  - component: {fileID: 261247185}
+  m_Layer: 22
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,6 +54,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &261247185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3257249524571430487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1476817, y: 1, z: 1.1672583}
+  m_Center: {x: -0.054545224, y: 0, z: -0.08362913}
 --- !u!1 &6850486139180164707
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +79,7 @@ GameObject:
   - component: {fileID: 4273882124896921874}
   - component: {fileID: 7945582988038843292}
   - component: {fileID: 861231538641390096}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +174,7 @@ GameObject:
   - component: {fileID: 6030744897606939376}
   - component: {fileID: 7746877761905525971}
   - component: {fileID: 4844448236689838436}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +269,7 @@ GameObject:
   - component: {fileID: 7821627749882206103}
   - component: {fileID: 7003546549936764369}
   - component: {fileID: 1793492900838626670}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
