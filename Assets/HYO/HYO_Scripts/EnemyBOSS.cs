@@ -17,7 +17,8 @@ public class EnemyBOSS : MonoBehaviour
     public int miniNum2;
     //폭발효과
     public GameObject exploFactory;
-
+    //코인
+    public GameObject coinFactory;
 
     bool is700;
     bool is400;
@@ -68,6 +69,8 @@ public class EnemyBOSS : MonoBehaviour
         }
         else if (bossHp <= 0)
         {
+            GameObject coin = Instantiate(coinFactory);
+            coin.transform.position = transform.position;
             gameObject.SetActive(false);
         }
     }

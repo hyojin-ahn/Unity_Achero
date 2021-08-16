@@ -15,6 +15,7 @@ public class MinimiBoss : MonoBehaviour
     public int damage;
     //Æø¹ßÈ¿°ú
     public GameObject exploFactory;
+    public GameObject coinFactory;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,8 @@ public class MinimiBoss : MonoBehaviour
     {
         if (MinimibossHp <= 0)
         {
+            GameObject coin = Instantiate(coinFactory);
+            coin.transform.position = transform.position;
             gameObject.SetActive(false);
         }
     }

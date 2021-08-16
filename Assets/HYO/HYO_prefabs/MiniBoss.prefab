@@ -311,6 +311,7 @@ MonoBehaviour:
   damage: 100
   miniNum: 1
   exploFactory: {fileID: 1391094211174683844, guid: f4945e153e142da478fc434787c33773, type: 3}
+  coinFactory: {fileID: 1000010714891294, guid: 5a0537415d4017c4fad7a4986f502dc1, type: 3}
 --- !u!54 &7972798331525640068
 Rigidbody:
   m_ObjectHideFlags: 0

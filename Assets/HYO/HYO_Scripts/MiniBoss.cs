@@ -17,6 +17,7 @@ public class MiniBoss : MonoBehaviour
     public int miniNum;
     //Æø¹ßÈ¿°ú
     public GameObject exploFactory;
+    public GameObject coinFactory;
 
     
 
@@ -43,6 +44,8 @@ public class MiniBoss : MonoBehaviour
             {
                 gogo.MakeMinmis();
             }
+            GameObject coin = Instantiate(coinFactory);
+            coin.transform.position = transform.position;
             gameObject.SetActive(false);
 
         }
