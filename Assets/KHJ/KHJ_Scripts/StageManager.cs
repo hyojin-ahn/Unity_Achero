@@ -12,6 +12,7 @@ public class StageManager : MonoBehaviour
 
     public GameObject Door;
     public GameObject SlotMachine;
+    public GameObject CurrTarget;
 
 
     private void Awake()
@@ -40,10 +41,7 @@ public class StageManager : MonoBehaviour
                 Door.GetComponent<Animator>().SetTrigger("Clear");
                 break;
             case 2:
-                if(Player.instance.gameObject.GetComponent<PlayerAttack>().CurrTarget == null)
-                {
-                    Door.GetComponent<Animator>().SetTrigger("Clear");
-                }
+                StartCoroutine(wait());
                 break;
             case 3:
                 Door.GetComponent<Animator>().SetTrigger("Clear");
@@ -69,6 +67,16 @@ public class StageManager : MonoBehaviour
             Door.GetComponent<Animator>().ResetTrigger("Clear");
         stage_now += 1;
         SceneManager.LoadScene(stage_now);
+    }
+
+    IEnumerator wait()
+    {
+        CurrTarget = Player.instance.gameObject.GetComponent<PlayerAttack>().CurrTarget;
+        yield return new WaitForSeconds(5f);
+        if (Player.instance.gameObject.GetComponent<PlayerAttack>().CurrTarget == null)
+        {
+            Door.GetComponent<Animator>().SetTrigger("Clear");
+        }
     }
 
 }
