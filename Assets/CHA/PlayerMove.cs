@@ -9,8 +9,10 @@ public class PlayerMove : MonoBehaviour
     public float speed = 20;
     Vector3 lookDirection;
     public bool ismove;
+    bool isBorder;
 
-    // Start is called before the first frame update
+    
+
     void Start()
     {
         speed = 5.5f;
@@ -22,46 +24,47 @@ public class PlayerMove : MonoBehaviour
     {
         float h;
         float v;
+        h = Input.GetAxis("Horizontal");            
+        v = Input.GetAxis("Vertical");
+        if (h != 0.0f || v != 0.0f)
+        {
+            ismove = true;
+        }
+        else if (h == 0.0f && v == 0.0f)
+        {
+            ismove = false;            
+        }
+
         if (Input.GetKey(KeyCode.A) ||
             Input.GetKey(KeyCode.D) ||
             Input.GetKey(KeyCode.W) ||
             Input.GetKey(KeyCode.S))
-        {
-            
-            h = Input.GetAxis("Horizontal");
-            
-            v = Input.GetAxis("Vertical");
-            if (h != 0.0f || v != 0.0f)
-            {
-                ismove = true;
-            }
-            else
-            {
-                ismove = false;
-            }
-            
+        {            
             Vector3 dirH = Vector3.right * h;
             Vector3 dirV = Vector3.forward * v;
-            Vector3 dir = dirH + dirV;
-
-            
+            Vector3 dir = dirH + dirV;            
             
             lookDirection = dir;
             //h * dirV + v * Vector3.right;
-           
-            this.transform.rotation = Quaternion.LookRotation(lookDirection);
+
+
+            //this.transform.rotation = Quaternion.LookRotation(lookDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), 0.2f);
             //this.transform.Translate(dir * speed * Time.deltaTime);
-            transform.position += dir * speed * Time.deltaTime;
+            if(!isBorder)
+                transform.position += dir * speed * Time.deltaTime;
             dir.Normalize();
         }
 
-
+        StopToWall();
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             SceneManager.LoadScene(2);
         }
+    }
 
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.P))
         {
             SceneManager.LoadScene(1);
@@ -69,5 +72,13 @@ public class PlayerMove : MonoBehaviour
 
 
 
+=======
+
+    void StopToWall()
+    {
+        Debug.DrawRay(transform.position, transform.forward * 1, Color.green);
+        isBorder = Physics.Raycast(transform.position, transform.forward, 1, LayerMask.GetMask("wall"));
+>>>>>>> KHJ
     }
+
 }

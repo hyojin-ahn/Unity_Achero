@@ -9,18 +9,11 @@ public class PlayerAttack : MonoBehaviour
     public GameObject PlayerBullet;
     //공격속도
     float CurrTime;
-    //어빌리티
-    bool Front2 = false;
-    bool Multishot = false;
-    bool Rear = false;
-    public GameObject[] ability;
 
     //적 타겟팅
     public GameObject spawn;
-    List<GameObject> EnemyList = new List<GameObject>();
-    public GameObject CurrTarget;
-
-    
+    public List<GameObject> EnemyList = new List<GameObject>();
+    public GameObject CurrTarget;    
 
     void Start()
     {
@@ -29,12 +22,15 @@ public class PlayerAttack : MonoBehaviour
 
         if(spawn != null)
             EnemyList = spawn.GetComponent<MakeEnemy>().EnemyList;
+<<<<<<< HEAD
         if (spawn == null)
         {
             spawn = GameObject.Find("Boss");
             EnemyList = EnemyBossManager.instance.EnemyList;
         }
 
+=======
+>>>>>>> KHJ
     }
 
     void Update()
@@ -50,75 +46,33 @@ public class PlayerAttack : MonoBehaviour
                 Fire();
         }
 
-
-
         //공격 테스트용
         if (Input.GetMouseButtonDown(0))
         {
-            if(Multishot)
+            if(AbilityManager.instance.abilities[3].isActive)
                 StartCoroutine("FireTwice");
             else
                 Fire();
         }
-            
-   
-        //어빌리티 테스트용
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-            if (Front2)
-            {
-                Front2 = false;
-                ability[0].SetActive(false);
-            }
-            else
-            {
-                Front2 = true;
-                ability[0].SetActive(true);
-            }
-
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-            if (Multishot)
-            {
-                Multishot = false;
-                ability[1].SetActive(false);
-            }
-            else
-            {
-                Multishot = true;
-                ability[1].SetActive(true);
-            }
-
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-            if (Rear)
-            {
-                Rear = false;
-                ability[2].SetActive(false);
-            }
-            else
-            {
-                Rear = true;
-                ability[2].SetActive(true);
-            }
-
     }
 
     
     void Fire()
-    {
-
+    {        
         GameObject bullet = Instantiate(PlayerBullet);
         //총알 만들기        
-        if (Front2 == true) 
+        if (AbilityManager.instance.abilities[4].isActive == true) 
         {
             SetBullet(bullet, 1);
             GameObject bullet1 = Instantiate(PlayerBullet);
             SetBullet(bullet1, 2);
         }
-        else if (Front2 == false)
+        else if (AbilityManager.instance.abilities[4].isActive == false)
         {            
             SetBullet(bullet, 0);
         }
 
-        if(Rear == true)
+        if(AbilityManager.instance.abilities[5].isActive == true)
         {
             GameObject bullet1 = Instantiate(PlayerBullet);
             SetBullet(bullet1, 3);
@@ -144,7 +98,6 @@ public class PlayerAttack : MonoBehaviour
         }
         //총알에 데미지 실어서 쏘기
         bullet.GetComponent<PlayerBulletMove>().power = gameObject.GetComponent<Player>().PlayerPower;
-
     }
 
 
@@ -165,7 +118,6 @@ public class PlayerAttack : MonoBehaviour
                 ResultIndex = i;
             }
         }
-
         //남은 적이 없다면
         if(ResultIndex == -1)
         {
@@ -174,7 +126,6 @@ public class PlayerAttack : MonoBehaviour
         }
         else
             CurrTarget = EnemyList[ResultIndex];
-
     }
 
     IEnumerator FireTwice()
