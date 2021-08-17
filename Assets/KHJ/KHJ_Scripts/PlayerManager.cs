@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         GameObject player = Instantiate(playerprefeb);
-        player.transform.position = new Vector3(0, 2.5f, -6f);        
+        player.transform.position = new Vector3(0, 0.5f, -6f);        
     }
 
 }

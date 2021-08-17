@@ -18,7 +18,7 @@ public class PlayerHpBar : MonoBehaviour
 
     void Start()
     {
-        maxHp = player.GetComponent<Player>().playerHp;
+        maxHp = Player.instance.playerHp;
         currentHp = maxHp;
     }
 
@@ -31,12 +31,12 @@ public class PlayerHpBar : MonoBehaviour
         HandleHp();
         //hp값을 화면에 적용
         HpDisplay();
-        
     }
 
     void HandleHp()
     {
-        currentHp = player.GetComponent<Player>().playerHp;
+
+        currentHp = Player.instance.playerHp;
         //hpBar의 값은 0~1 사이의 값임 따라서 현재hp/최대hp값으로 구할 수 있음
         hpValue = currentHp / maxHp;
         //선형보간 Mathf.Lerp(A,B,t) A와 B사이의 t만큼의 값을 반환함
@@ -48,6 +48,11 @@ public class PlayerHpBar : MonoBehaviour
         //체력이 0보다 작아져도 0으로 표시
         if (currentHp < 0)
             currentHp = 0;
+        if (currentHp > maxHp)
+        {
+            currentHp = maxHp;
+            Player.instance.playerHp = (int)maxHp;
+        }
         Hp.text = currentHp.ToString();
     }
 
@@ -63,6 +68,4 @@ public class PlayerHpBar : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         DamagedValue.SetActive(false);
     }
-
-
 }

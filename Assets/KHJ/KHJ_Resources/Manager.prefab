@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1927478468283766798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927478468283766796}
+  - component: {fileID: 1927478468283766799}
+  - component: {fileID: 1399406407267923757}
+  - component: {fileID: 8324053784182386321}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1927478468283766796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927478468283766798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 327.29074, y: 1284.0544, z: -313.5389}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1927478468283766799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927478468283766798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1374b0a1b1d3c8b4faced61681fe61ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities:
+  - name: "\uACF5\uACA9\uB825 \uC99D\uAC00(\uC18C)"
+    description: "<b><color=red>\uACF5\uACA9\uB825</color></b>\uC774 \uC870\uAE08
+      \uC99D\uAC00\uD569\uB2C8\uB2E4!"
+    image: {fileID: 21300000, guid: 706179ff0cc63d146a3fb13bfe4b37c6, type: 3}
+    isActive: 0
+  - name: "\uACF5\uACA9\uB825 \uC99D\uAC00(\uB300)"
+    description: "<b><color=red>\uACF5\uACA9\uB825</color></b>\uC774 \uB9CE\uC774
+      \uC99D\uAC00\uD569\uB2C8\uB2E4!"
+    image: {fileID: 21300000, guid: 4c751c88eb8d3014ca058f59b29dbbe6, type: 3}
+    isActive: 0
+  - name: "HP \uBD80\uC2A4\uD2B8"
+    description: "<color=green>\uCD5C\uB300 HP</color>\uAC00 \uC99D\uAC00\uD588\uC2B5\uB2C8\uB2E4!"
+    image: {fileID: 21300000, guid: 27bf96a1930477748911d43fbe1d4f47, type: 3}
+    isActive: 0
+  - name: "\uBA40\uD2F0 \uC0F7"
+    description: "\uB9E4\uBC88 \uD654\uC0B4\uC744 \uD558\uB098 \uB354 \uBC1C\uC0AC\uD569\uB2C8\uB2E4!"
+    image: {fileID: 21300000, guid: b10dc9367be5b734eac94d712c8f053d, type: 3}
+    isActive: 0
+  - name: "\uC55E\uCABD \uD654\uC0B4\uD45C + 1"
+    description: "\uD654\uC0B4 \uC55E\uC73C\uB85C \uBC1C\uC0AC + 1"
+    image: {fileID: 21300000, guid: aaff66ddcbed4774baad91859a290f70, type: 3}
+    isActive: 0
+  - name: "\uD6C4\uBA74 \uD654\uC0B4\uD45C + 1"
+    description: "\uD654\uC0B4\uC774 \uB4A4\uB85C \uBC1C\uC0AC\uB428 + 1"
+    image: {fileID: 21300000, guid: 9fc4398f1abf0e54a80cdfacc7c9a118, type: 3}
+    isActive: 0
+--- !u!114 &1399406407267923757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927478468283766798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4539f8be505505441bab5f54e3916436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage_now: 1
+  clear: 0
+  Door: {fileID: 0}
+  SlotMachine: {fileID: 0}
+--- !u!114 &8324053784182386321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927478468283766798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944cb662bfcf3384c9642f7e1c1c9f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerprefeb: {fileID: 8579292313213164485, guid: 63ec1f5ee70f1314d86516b3fd5d0c40, type: 3}

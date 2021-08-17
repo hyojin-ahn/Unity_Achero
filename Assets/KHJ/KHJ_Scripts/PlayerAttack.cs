@@ -7,20 +7,13 @@ public class PlayerAttack : MonoBehaviour
     Player player;
     public GameObject[] AttackPos;
     public GameObject PlayerBullet;
-    //°ø°Ý¼Óµµ
+    //ï¿½ï¿½ï¿½Ý¼Óµï¿½
     float CurrTime;
-    //¾îºô¸®Æ¼
-    bool Front2 = false;
-    bool Multishot = false;
-    bool Rear = false;
-    public GameObject[] ability;
 
-    //Àû Å¸°ÙÆÃ
+    //ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½
     public GameObject spawn;
-    List<GameObject> EnemyList = new List<GameObject>();
+    public List<GameObject> EnemyList = new List<GameObject>();
     public GameObject CurrTarget;
-
-    
 
     void Start()
     {
@@ -39,93 +32,51 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        //°¡±î¿î Àû Å½»ö
-        DetectNearestTarget();        
-        //°¡±î¿î ÀûÀÌ ÀÖ´Ù¸é °ø°Ý
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å½ï¿½ï¿½
+        DetectNearestTarget();
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½
         CurrTime += Time.deltaTime;
         if(CurrTarget != null)
         {
-            //ÀÏÁ¤ ½Ã°£¸¶´Ù °ø°Ý
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (CurrTime > player.FireTime)
                 Fire();
         }
 
-
-
-        //°ø°Ý Å×½ºÆ®¿ë
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®ï¿½ï¿½
         if (Input.GetMouseButtonDown(0))
         {
-            if(Multishot)
+            if(AbilityManager.instance.abilities[3].isActive)
                 StartCoroutine("FireTwice");
             else
                 Fire();
         }
-            
-   
-        //¾îºô¸®Æ¼ Å×½ºÆ®¿ë
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-            if (Front2)
-            {
-                Front2 = false;
-                ability[0].SetActive(false);
-            }
-            else
-            {
-                Front2 = true;
-                ability[0].SetActive(true);
-            }
-
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-            if (Multishot)
-            {
-                Multishot = false;
-                ability[1].SetActive(false);
-            }
-            else
-            {
-                Multishot = true;
-                ability[1].SetActive(true);
-            }
-
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-            if (Rear)
-            {
-                Rear = false;
-                ability[2].SetActive(false);
-            }
-            else
-            {
-                Rear = true;
-                ability[2].SetActive(true);
-            }
-
     }
 
-    
+
     void Fire()
     {
-
         GameObject bullet = Instantiate(PlayerBullet);
-        //ÃÑ¾Ë ¸¸µé±â        
-        if (Front2 == true) 
+        //ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if (AbilityManager.instance.abilities[4].isActive == true)
         {
             SetBullet(bullet, 1);
             GameObject bullet1 = Instantiate(PlayerBullet);
             SetBullet(bullet1, 2);
         }
-        else if (Front2 == false)
-        {            
+        else if (AbilityManager.instance.abilities[4].isActive == false)
+        {
             SetBullet(bullet, 0);
         }
 
-        if(Rear == true)
+        if(AbilityManager.instance.abilities[5].isActive == true)
         {
             GameObject bullet1 = Instantiate(PlayerBullet);
             SetBullet(bullet1, 3);
             bullet1.transform.forward = Vector3.back;
         }
 
-        //ÀÏÁ¤ ½Ã°£¸¶´Ù ¹ß»ç
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
         CurrTime = 0;
     }
 
@@ -134,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
         bullet.transform.position = AttackPos[pos].transform.position;
         if (CurrTarget != null)
         {
-            //Å¸°Ù ¹æÇâÀ¸·Î ÃÑ¾Ë ¹æÇâ ¼³Á¤
+            //Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Vector3 firedir = CurrTarget.transform.position - transform.position;
             bullet.GetComponent<PlayerBulletMove>().dir = firedir.normalized;
         }
@@ -142,9 +93,8 @@ public class PlayerAttack : MonoBehaviour
         {
             bullet.GetComponent<PlayerBulletMove>().dir = Vector3.forward;
         }
-        //ÃÑ¾Ë¿¡ µ¥¹ÌÁö ½Ç¾î¼­ ½î±â
+        //ï¿½Ñ¾Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾î¼­ ï¿½ï¿½ï¿½ï¿½
         bullet.GetComponent<PlayerBulletMove>().power = gameObject.GetComponent<Player>().PlayerPower;
-
     }
 
 
@@ -155,18 +105,17 @@ public class PlayerAttack : MonoBehaviour
         for(int i = 0; i < EnemyList.Count; i++)
         {
             float currDistance = 10000;
-            //»ì¾ÆÀÖ´Â Àû Áß¿¡¼­
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½
             if(EnemyList[i].activeSelf == true)
                 currDistance = EnemyList[i].gameObject.GetComponent<EnemyStat>().objDistance;
-            //Á¦ÀÏ °¡±î¿î Àû Ã£±â
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã£ï¿½ï¿½
             if (tmpDistance > currDistance)
             {
-                tmpDistance = currDistance;                
+                tmpDistance = currDistance;
                 ResultIndex = i;
             }
         }
-
-        //³²Àº ÀûÀÌ ¾ø´Ù¸é
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½
         if(ResultIndex == -1)
         {
             CurrTarget = null;
@@ -174,7 +123,6 @@ public class PlayerAttack : MonoBehaviour
         }
         else
             CurrTarget = EnemyList[ResultIndex];
-
     }
 
     IEnumerator FireTwice()

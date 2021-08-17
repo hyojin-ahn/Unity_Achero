@@ -38,15 +38,6 @@ public class EnemyHpBar : MonoBehaviour
         //선형보간 Mathf.Lerp(A,B,t) A와 B사이의 t만큼의 값을 반환함
         hpBar.value = Mathf.Lerp(hpBar.value, hpValue, Time.deltaTime * 10);
 
-
-        ////hp감소 감지        
-        //if (tmpHp > currentHp)
-        //{
-        //    //Damaged((int)(tmpHp - currentHp));
-        //    tmpHp = currentHp;
-
-        //}
-
         if (currentHp <= 0)
         {
             //Destroy(enemyname);
